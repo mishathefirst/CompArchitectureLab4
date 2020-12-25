@@ -1,0 +1,107 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/22/2020  03:15:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Program.obj TO .\Objects\LAB4Task2C PRINT (.\Listings\LAB4Task2C.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Program.obj (PROGRAM)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCMP)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?CASTF)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+
+
+LINK MAP OF MODULE:  .\Objects\LAB4Task2C (PROGRAM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         ?DT?MAIN?PROGRAM
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     02A0H     UNIT         ?C?LIB_CODE
+            CODE    0AA0H     007CH     UNIT         ?PR?MAIN?PROGRAM
+            CODE    0B1CH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LAB4Task2C (PROGRAM)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PROGRAM
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LAB4Task2C (PROGRAM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROGRAM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/22/2020  03:15:04  PAGE 2
+
+
+  C:0AA0H         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        x
+  D:000CH         SYMBOL        y
+  -------         ENDDO         
+  C:0AA0H         LINE#         3
+  C:0AA0H         LINE#         5
+  C:0AC1H         LINE#         6
+  C:0AEFH         LINE#         7
+  C:0AFCH         LINE#         8
+  C:0B19H         LINE#         9
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        PROGRAM
+
+  -------         MODULE        ?C?FPADD
+  C:0807H         PUBLIC        ?C?FPADD
+  C:0803H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPDIV
+  C:08FBH         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FPCMP
+  C:099AH         PUBLIC        ?C?FPCMP
+  C:0998H         PUBLIC        ?C?FPCMP3
+  -------         ENDMOD        ?C?FPCMP
+
+  -------         MODULE        ?C?CASTF
+  C:0A11H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?LNEG
+  C:0A92H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 007CH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=17.0 xdata=0 code=811
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

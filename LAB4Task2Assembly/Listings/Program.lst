@@ -1,0 +1,84 @@
+A51 MACRO ASSEMBLER  PROGRAM                                                              10/22/2020 04:05:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Program.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Program.a51 SET(SMALL) DEBUG PRINT(.\Listings\Program.lst) OBJECT(.\Obj
+                      ects\Program.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+  REG                  1     m   equ r1
+  REG                  2     i   equ r5
+  REG                  3     x   equ r2
+  REG                  4     si  equ r6
+  REG                  5     itr equ r4
+  REG                  6     j  equ r3
+                       7     
+----                   8     cseg at 0
+0000 8000              9         jmp start
+                      10     
+                      11     ; S0 = m - x; 
+                      12     ; Si+1 = m - x*Si/m; 
+                      13     
+0002                  14     start:
+0002 7964             15         mov m,#100
+0004 7A00             16         mov x, #0
+0006 7C64             17         mov itr, #100
+                      18     
+0008                  19     loop:
+                      20     
+                      21         ; S0 = m - x
+0008 E9               22         mov a, m 
+0009 9A               23         subb a, x
+000A FE               24         mov si, a
+000B 7B0A             25         mov j, #10
+000D                  26         innerLoop:
+000D 8AF0             27             mov b, x     ; x 
+000F EE               28             mov a, si    ; Si
+0010 A4               29             mul ab ; x*Si
+                      30             ; x*Si >> 7
+0011 C5F0             31             xch a,b
+0013 23               32             rl a
+0014 53F07F           33             anl b,#0x7f
+0017 45F0             34             orl a,b
+                      35             ; m - x*Si/m
+0019 E9               36             mov a, m
+001A 95F0             37             subb a, b
+                      38     
+001C FE               39             mov si, a
+001D 1B               40             dec j ; checking end of the innerloop
+001E EB               41             mov a, j
+001F 70EC             42         jnz innerLoop
+0021 0A               43         inc x ; increment X
+0022 8EB0             44         mov P3, si ; For analyzer
+0024 1C               45         dec itr ; checking end of the loop
+0025 EC               46         mov a, itr
+0026 70E0             47         jnz loop
+                      48             end
+                                 ;jmp end
+A51 MACRO ASSEMBLER  PROGRAM                                                              10/22/2020 04:05:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+I. . . . . . . . .    REG    R5          
+INNERLOOP. . . . .  C ADDR   000DH   A   
+ITR. . . . . . . .    REG    R4          
+J. . . . . . . . .    REG    R3          
+LOOP . . . . . . .  C ADDR   0008H   A   
+M. . . . . . . . .    REG    R1          
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SI . . . . . . . .    REG    R6          
+START. . . . . . .  C ADDR   0002H   A   
+X. . . . . . . . .    REG    R2          
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

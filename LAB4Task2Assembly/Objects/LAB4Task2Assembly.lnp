@@ -1,0 +1,3 @@
+".\Objects\Program.obj" 
+TO ".\Objects\LAB4Task2Assembly" 
+PRINT(".\Listings\LAB4Task2Assembly.m51") RAMSIZE(256) 
